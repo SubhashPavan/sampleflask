@@ -10,7 +10,10 @@ def index():
 def hello():
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    return 'Hello %s %s have fun learning python <br/> <a href="/">Back Home</a>' % (first_name, last_name)
+    if first_name == "Pavan" and last_name == "Tirumalasetti":
+        return 'Hello %s %s have fun learning python <br/> <a href="/">Back Home</a>' % (first_name, last_name)
+    else:
+        return "Sorry!! Entered details are wrong!" 
 
 if __name__ == '__main__':
     app.run(port = 3000)
