@@ -4,9 +4,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    """Render Templates"""
     return render_template('test.html')
 
-def authentication(first,last):
+def authentication(first, last):
+    """Authenticates Given Details"""
+
     if first == "Pavan" and last == "Tirumalasetti":
         result = 'Correct'
     else:
@@ -15,9 +18,13 @@ def authentication(first,last):
 
 @app.route('/hello', methods=['POST'])
 def hello():
+    
+    """Takes Inputs and Authenticates"""
+
+    
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    decision = authentication(first_name,last_name)
+    decision = authentication(first_name, last_name)
     if decision == "Correct":
         return 'Hello %s %s have fun learning python <br/> <a href="/">Back Home</a>' % (first_name, last_name)
     else:
